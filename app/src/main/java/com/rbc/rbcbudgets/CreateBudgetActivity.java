@@ -50,7 +50,7 @@ public class CreateBudgetActivity extends AppCompatActivity implements ImageButt
         final int currentFragment = viewer.getCurrentItem();
 
         if (id == R.id.create_prev) {
-
+            viewer.setCurrentItem(currentFragment - 1);
         } else if (id == R.id.create_next) {
             // save form
             fragments.get(currentFragment).fillForm(this.targetForm);

@@ -7,6 +7,8 @@ public class BudgetTarget {
     private int targetYear = 2016;
     private int targetMonth = 3; // 0 indexed.
     private int targetDayOfMonth = 9; // not 0 indexed.
+    private String goal = "";
+    private String because = "";
 
     public double getTargetSaveGoal() {
         return targetSaveGoal;
@@ -38,5 +40,21 @@ public class BudgetTarget {
 
     public void setTargetDayOfMonth(int targetDayOfMonth) {
         this.targetDayOfMonth = targetDayOfMonth;
+    }
+
+    public String getGoal() {
+        return goal;
+    }
+
+    public void setGoal(String goal) {
+        this.goal = goal;
+    }
+
+    public String getBecause() {
+        return because;
+    }
+
+    public void setBecause(String because) {
+        this.because = because;
     }
 }

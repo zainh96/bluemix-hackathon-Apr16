@@ -82,5 +82,67 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
+
+        <!-- For Entry -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="26sp"
+                android:textColor="@android:color/white"
+                android:text="For"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:layout_marginStart="4dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:id="@+id/step_one_for_input"
+                android:textColorLink="@android:color/white"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"
+                android:textAlignment="center"
+                android:hint="Goal"
+                android:singleLine="false"
+                android:minEms="3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- Because -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="26sp"
+                android:textColor="@android:color/white"
+                android:text="Because"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:layout_marginStart="4dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:id="@+id/step_one_because_input"
+                android:textColorLink="@android:color/white"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"
+                android:textAlignment="center"
+                android:hint="Reason"
+                android:singleLine="false"
+                android:minEms="4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
     </LinearLayout>
 </FrameLayout>

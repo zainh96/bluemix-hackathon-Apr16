@@ -19,10 +19,12 @@ import java.util.Calendar;
 public class CreateBudgetStepOneFragment extends FormFragment implements View.OnClickListener, CalendarDatePickerDialogFragment.OnDateSetListener {
 
     private FormCompletion mCallBack;
-    private EditText amountInput;
+    private EditText amountInput, forInput, becauseInput;
     private Button dateButton;
     private boolean amountIsFilled = false;
     private boolean dateIsFilled = true;
+    private boolean forIsFilled = false;
+    private boolean becauseIsFilled = false;
     private String months[];
     private int year;
     private int month ;
@@ -55,9 +57,12 @@ public class CreateBudgetStepOneFragment extends FormFragment implements View.On
         View v = inflater.inflate(R.layout.fragment_create_budget_step_one, container, false);
 
         amountInput = (EditText) v.findViewById(R.id.step_one_amount_input);
+        forInput = (EditText) v.findViewById(R.id.step_one_for_input);
+        becauseInput = (EditText) v.findViewById(R.id.step_one_because_input);
         dateButton = (Button) v.findViewById(R.id.step_one_date_input);
 
         dateButton.setOnClickListener(this);
+
         amountInput.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -67,7 +72,41 @@ public class CreateBudgetStepOneFragment extends FormFragment implements View.On
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 amountIsFilled = s.length() > 0;
-                checkForm(amountIsFilled && dateIsFilled);
+                checkForm(amountIsFilled && dateIsFilled && forIsFilled && becauseIsFilled);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        forInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                forIsFilled = s.length() > 0;
+                checkForm(amountIsFilled && dateIsFilled && forIsFilled && becauseIsFilled);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        becauseInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                becauseIsFilled = s.length() > 0;
+                checkForm(amountIsFilled && dateIsFilled && forIsFilled && becauseIsFilled);
             }
 
             @Override
@@ -114,7 +153,7 @@ public class CreateBudgetStepOneFragment extends FormFragment implements View.On
         this.month = monthOfYear;
         this.dayOfMonth = dayOfMonth;
 
-        checkForm(dateIsFilled && amountIsFilled);
+        checkForm(dateIsFilled && amountIsFilled && forIsFilled && becauseIsFilled);
     }
 
     public CreateBudgetStepOneFragment setFormCompletionCallback(FormCompletion f){
