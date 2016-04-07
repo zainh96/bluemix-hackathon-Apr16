@@ -37,9 +37,13 @@ public class CreateBudgetStepOneFragment extends FormFragment implements View.On
     @Override
     public void clearForm() {
         amountInput.setText("");
+        forInput.setText("");
+        becauseInput.setText("");
         dateButton.setText(getString(R.string.step_one_choose_date));
         dateIsFilled = false;
         amountIsFilled = false;
+        forIsFilled = false;
+        becauseIsFilled = false;
         mCallBack.formIsNotFilled();
     }
 

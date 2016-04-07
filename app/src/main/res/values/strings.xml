@@ -34,8 +34,43 @@
 
     <!-- Create Budget Step One Fragment -->
     <array name="step_two_categories">
-        <item>Entertainment</item>
-        <item>Electronics</item>
+        <item>Food</item>
         <item>Clothing</item>
+        <item>Electronics</item>
+        <item>Entertainment</item>
+        <item>Other</item>
+    </array>
+
+    <!-- Items for food -->
+    <array name="food_array">
+        <item>Fast Food</item>
+        <item>Alcohol</item>
+        <item>Groceries</item>
+        <item>Coffee</item>
+    </array>
+
+    <!-- Items for Clothing -->
+    <array name="clothing_array">
+        <item>Footwear</item>
+        <item>Accessories</item>
+        <item>Tops</item>
+        <item>Bottoms</item>
+    </array>
+
+    <!-- Items for Electronics -->
+    <array name="electronics_array">
+        <item>Laptops</item>
+        <item>Computer Accessories</item>
+        <item>Computers</item>
+        <item>Smart Phones</item>
+        <item>Cameras</item>
+        <item>Tablets</item>
+    </array>
+
+    <!-- Items for Entertainment -->
+    <array name="entertainment_array">
+        <item>Movies</item>
+        <item>Video Games</item>
+        <item>Netflix</item>
     </array>
 </resources>

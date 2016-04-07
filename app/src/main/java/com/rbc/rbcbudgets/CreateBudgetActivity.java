@@ -51,6 +51,7 @@ public class CreateBudgetActivity extends AppCompatActivity implements ImageButt
 
         if (id == R.id.create_prev) {
             viewer.setCurrentItem(currentFragment - 1);
+            next.setVisibility(View.VISIBLE);
         } else if (id == R.id.create_next) {
             // save form
             fragments.get(currentFragment).fillForm(this.targetForm);
