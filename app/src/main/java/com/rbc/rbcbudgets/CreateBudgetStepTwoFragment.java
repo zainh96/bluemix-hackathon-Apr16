@@ -6,6 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 
 /**
@@ -14,6 +19,16 @@ import android.widget.Button;
 public class CreateBudgetStepTwoFragment extends FormFragment implements CategoryPickerDialog.CategoryAddListener, View.OnClickListener {
     private FormCompletion mCallBack;
     private Button add;
+    private LinearLayout mContainer;
+    private ArrayList<Item> items = new ArrayList<>();
+
+    private int images[] = {
+            R.drawable.hamburger,
+            R.drawable.hamburger,
+            R.drawable.hamburger,
+            R.drawable.hamburger,
+            R.drawable.hamburger
+    };
 
     public CreateBudgetStepTwoFragment() {
         // Required empty public constructor
@@ -21,7 +36,18 @@ public class CreateBudgetStepTwoFragment extends FormFragment implements Categor
 
     @Override
     public void addItem(int category, String item) {
-        Log.i("category = " + category + " item = " + item, "");
+        Log.i("category = " + category + " item = " + item, "gjghg");
+        View v = getActivity().getLayoutInflater().inflate(R.layout.item_view, mContainer, false);
+
+        TextView t = (TextView) v.findViewById(R.id.item_view_item);
+        t.setText(item);
+
+        ImageView image = (ImageView) v.findViewById(R.id.item_view_image);
+        image.setImageDrawable(getActivity().getResources().getDrawable(images[category], null));
+
+        items.add(new Item(category, item));
+        checkForm(true);
+        mContainer.addView(v);
     }
 
     private void checkForm(boolean inputsFilled){
@@ -52,6 +78,8 @@ public class CreateBudgetStepTwoFragment extends FormFragment implements Categor
         add = (Button) v.findViewById(R.id.step_two_add);
         add.setOnClickListener(this);
 
+        mContainer = (LinearLayout) v.findViewById(R.id.itemsContainer);
+
         return v;
     }
 
@@ -65,6 +93,9 @@ public class CreateBudgetStepTwoFragment extends FormFragment implements Categor
     @Override
     public void clearForm() {
         // TODO
+        mContainer.removeAllViews();
+        items = new ArrayList<>();
+        checkForm(false);
     }
 
     @Override

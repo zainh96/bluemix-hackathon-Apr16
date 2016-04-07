@@ -83,6 +83,9 @@ public class CategoryPickerDialog extends android.support.v4.app.DialogFragment 
         builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                if(categoryIndex == category_array.length - 1){
+                    item = input.getText().toString();
+                }
                 callBack.addItem(categoryIndex, item);
             }
         });
@@ -99,6 +102,28 @@ public class CategoryPickerDialog extends android.support.v4.app.DialogFragment 
         }  else {
             itemSpinner.setVisibility(View.VISIBLE);
             input.setVisibility(View.GONE);
+        }
+
+        if(position == 0){
+            ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getActivity(),
+                    R.array.food_array, android.R.layout.simple_spinner_item);
+            adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            itemSpinner.setAdapter(adapter2);
+        } else if(position == 1){
+            ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getActivity(),
+                    R.array.clothing_array, android.R.layout.simple_spinner_item);
+            adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            itemSpinner.setAdapter(adapter2);
+        } else if(position == 2){
+            ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getActivity(),
+                    R.array.electronics_array, android.R.layout.simple_spinner_item);
+            adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            itemSpinner.setAdapter(adapter2);
+        } else if(position == 4){
+            ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getActivity(),
+                    R.array.entertainment_array, android.R.layout.simple_spinner_item);
+            adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            itemSpinner.setAdapter(adapter2);
         }
 
         categoryIndex = position;
