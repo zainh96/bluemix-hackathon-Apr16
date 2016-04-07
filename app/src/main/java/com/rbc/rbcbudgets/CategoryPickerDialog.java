@@ -119,7 +119,7 @@ public class CategoryPickerDialog extends android.support.v4.app.DialogFragment 
                     R.array.electronics_array, android.R.layout.simple_spinner_item);
             adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             itemSpinner.setAdapter(adapter2);
-        } else if(position == 4){
+        } else if(position == 3){
             ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getActivity(),
                     R.array.entertainment_array, android.R.layout.simple_spinner_item);
             adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

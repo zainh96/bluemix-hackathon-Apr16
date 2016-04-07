@@ -11,6 +11,7 @@
         android:layout_height="30dp" />
 
     <TextView
+        android:layout_gravity="bottom"
         android:textSize="18sp"
         android:textColor="@android:color/white"
         android:id="@+id/item_view_item"

@@ -24,10 +24,10 @@ public class CreateBudgetStepTwoFragment extends FormFragment implements Categor
 
     private int images[] = {
             R.drawable.hamburger,
-            R.drawable.hamburger,
-            R.drawable.hamburger,
-            R.drawable.hamburger,
-            R.drawable.hamburger
+            R.drawable.clothes,
+            R.drawable.electronics,
+            R.drawable.entertainment,
+            R.drawable.other
     };
 
     public CreateBudgetStepTwoFragment() {
@@ -92,7 +92,6 @@ public class CreateBudgetStepTwoFragment extends FormFragment implements Categor
 
     @Override
     public void clearForm() {
-        // TODO
         mContainer.removeAllViews();
         items = new ArrayList<>();
         checkForm(false);
@@ -100,6 +99,6 @@ public class CreateBudgetStepTwoFragment extends FormFragment implements Categor
 
     @Override
     public void fillForm(BudgetTarget form) {
-        // TODO
+        form.setItems(items);
     }
 }

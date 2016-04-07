@@ -1,5 +1,7 @@
 package com.rbc.rbcbudgets;
 
+import java.util.ArrayList;
+
 public class BudgetTarget {
 
     // for step one of form..
@@ -9,6 +11,7 @@ public class BudgetTarget {
     private int targetDayOfMonth = 9; // not 0 indexed.
     private String goal = "";
     private String because = "";
+    private ArrayList<Item> items;
 
     public double getTargetSaveGoal() {
         return targetSaveGoal;
@@ -56,5 +59,13 @@ public class BudgetTarget {
 
     public void setBecause(String because) {
         this.because = because;
+    }
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(ArrayList<Item> items) {
+        this.items = items;
     }
 }
