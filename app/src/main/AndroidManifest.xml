@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:windowSoftInputMode="adjustPan"
             android:name=".LoginActivity"
             android:theme="@style/NoActionBar">
             <intent-filter>
@@ -18,7 +19,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreateBudgetActivity" android:theme="@style/NoActionBar"/>
+        <activity android:name=".CreateBudgetActivity" android:theme="@style/NoActionBar" android:windowSoftInputMode="adjustPan" />
     </application>
-
 </manifest>
