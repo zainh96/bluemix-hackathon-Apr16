@@ -56,13 +56,13 @@ public class SummaryFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        progressBar.setProgress((int) form.getPercentage() * 100);
+        progressBar.setProgress((int) form.getPercentage());
         progressPercentage.setText(form.getPercentage() + "%");
         progressName.setText(form.getGoal());
         progressSaved.setText("$" + String.format("%.2f", form.getSaved()));
         progressTarget.setText("$" + String.format("%.2f", form.getTargetSaveGoal()));
 
         String months[] = getActivity().getResources().getStringArray(R.array.month_array);
-        progressdate.setText(months[form.getTargetMonth()] + " " + form.getTargetDayOfMonth() + ", " + form.getTargetYear());
+        progressdate.setText(months[form.getTargetMonth() - 1] + " " + form.getTargetDayOfMonth() + ", " + form.getTargetYear());
     }
 }

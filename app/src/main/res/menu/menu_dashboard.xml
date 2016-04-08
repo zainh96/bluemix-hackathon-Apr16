@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/send_notification"
-        android:title="Send Notification"
+    <item android:id="@+id/marketing_notification"
+        android:title="Marketing Notification"
+        app:showAsAction="never"/>
+    <item android:id="@+id/stop_notification"
+        android:title="Purchase Notification"
         app:showAsAction="never"/>
 </menu>

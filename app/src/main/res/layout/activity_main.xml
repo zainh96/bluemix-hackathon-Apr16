@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="24dp"
     android:orientation="vertical"
     android:background="@color/colorPrimary"
     tools:context=".LoginActivity">
@@ -59,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         card_view:cardElevation="4dp"
         card_view:cardUseCompatPadding="true"
         card_view:contentPadding="5dp">

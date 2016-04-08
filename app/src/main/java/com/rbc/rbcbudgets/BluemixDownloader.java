@@ -21,7 +21,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class BluemixDownloader extends AsyncTask<String, Boolean, Boolean>{
-    private static String mURL = "TODO";
+    private static String mURL = "http://projecttea.mybluemix.net/api/v1/goals";
     private DownloadListener listener;
 
     public interface DownloadListener{
@@ -60,10 +60,10 @@ public class BluemixDownloader extends AsyncTask<String, Boolean, Boolean>{
                 // date
                 final long unixTimeStamp = object.getLong("date");
                 Calendar date = new GregorianCalendar();
-                date.setTimeInMillis(unixTimeStamp);
+                date.setTimeInMillis(unixTimeStamp * 1000);
 
                 target.setTargetYear(date.get(Calendar.YEAR));
-                target.setTargetMonth(date.get(Calendar.MONTH) - 1);
+                target.setTargetMonth(date.get(Calendar.MONTH));
                 target.setTargetDayOfMonth(date.get(Calendar.DAY_OF_MONTH));
 
                 list.add(target);

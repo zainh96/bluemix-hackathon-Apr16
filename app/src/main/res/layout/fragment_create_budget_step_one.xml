@@ -108,8 +108,8 @@
                 android:textColorHint="@android:color/white"
                 android:textAlignment="center"
                 android:hint="Goal"
-                android:singleLine="false"
                 android:minEms="3"
+                android:singleLine="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
@@ -139,7 +139,7 @@
                 android:textColorHint="@android:color/white"
                 android:textAlignment="center"
                 android:hint="Reason"
-                android:singleLine="false"
+                android:singleLine="true"
                 android:minEms="4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.NotificationCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -60,18 +61,30 @@ public class DashBoardActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-            case R.id.send_notification:
+            case R.id.marketing_notification:
                 sendNotification();
+                return true;
+            case R.id.stop_notification:
+                sendNotification2();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
+    private void sendNotification2(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Are you sure about this purchase?");
+        builder.setMessage("This will impact your budget plan for Nirali's wedding. Do you love Nirali more than your coffee?");
+        builder.setPositiveButton("Yes, I do", null);
+        builder.setNegativeButton("No, Cancel", null);
+        builder.show();
+    }
+
     private void sendNotification(){
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.drawable.rbc_login)
+                        .setSmallIcon(R.drawable.ic_trending_up_24dp)
                         .setContentTitle("RBC can help you with your budgets")
                         .setStyle(new NotificationCompat.BigTextStyle()
                                 .bigText("We've noticed you were having trouble with one of your budgets. You can talk to an RBC representative at a local branch"))
@@ -83,7 +96,7 @@ public class DashBoardActivity extends AppCompatActivity {
                         this,
                         0,
                         result,
-                        PendingIntent.FLAG_UPDATE_CURRENT
+                        PendingIntent.FLAG_ONE_SHOT
                 );
         mBuilder.setContentIntent(resultPendingIntent);
         NotificationManager mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);

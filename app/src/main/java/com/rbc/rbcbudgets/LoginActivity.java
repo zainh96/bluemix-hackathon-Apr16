@@ -2,6 +2,7 @@ package com.rbc.rbcbudgets;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,8 +17,10 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 
+import java.util.ArrayList;
+
 // login Activity.
-public class LoginActivity extends AppCompatActivity implements ImageButton.OnTouchListener, View.OnClickListener {
+public class LoginActivity extends AppCompatActivity implements ImageButton.OnTouchListener, View.OnClickListener, BluemixDownloader.DownloadListener {
 
     private EditText cardNumberInput = null;
     private EditText cardPasswordInput = null;
@@ -34,6 +37,34 @@ public class LoginActivity extends AppCompatActivity implements ImageButton.OnTo
     private boolean cardCorrectFormat = false;
 
     private static final int CARD_LENGTH = 16;
+
+    @Override
+    public void downloadSucceeded(ArrayList<BudgetTarget> list) {
+        GlobalDataTransfer.getInstance().setForms(list);
+        Intent intent = new Intent(this, DashBoardActivity.class);
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                progressBar.setVisibility(View.INVISIBLE);
+            }
+        });
+        startActivity(intent);
+    }
+
+    @Override
+    public void downloadFailed() {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                progressBar.setVisibility(View.INVISIBLE);
+            }
+        });
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Network Error");
+        builder.setMessage("A Network error occurred. Please try again.");
+        builder.setPositiveButton("Ok", null);
+        builder.show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,10 +124,12 @@ public class LoginActivity extends AppCompatActivity implements ImageButton.OnTo
         // TODO: check credentials with db.
 
         // TODO: show progress bar (and download data)
+        progressBar.setVisibility(View.VISIBLE);
 
         // TODO: launch dashboard activity or launch initial budget creation.
-        Intent intent = new Intent(this, DashBoardActivity.class);
-        startActivity(intent);
+        BluemixDownloader downloader = new BluemixDownloader();
+        downloader.setDownloadListener(this);
+        downloader.execute();
     }
 
     @Override
