@@ -53,6 +53,8 @@ public class CreateBudgetStepOneFragment extends FormFragment implements View.On
         form.setTargetYear(this.year);
         form.setTargetMonth(this.month);
         form.setTargetDayOfMonth(this.dayOfMonth);
+        form.setGoal(forInput.getText().toString());
+        form.setBecause(becauseInput.getText().toString());
     }
 
     @Override
@@ -165,9 +167,4 @@ public class CreateBudgetStepOneFragment extends FormFragment implements View.On
         return this;
     }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mCallBack = null; // remove reference
-    }
 }

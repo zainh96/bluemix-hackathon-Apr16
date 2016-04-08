@@ -39,6 +39,7 @@ public class CreateBudgetActivity extends AppCompatActivity implements ImageButt
         // create fragments
         fragments.add(new CreateBudgetStepOneFragment().setFormCompletionCallback(this));
         fragments.add(new CreateBudgetStepTwoFragment().setFormCompletionCallback(this));
+        fragments.add(new CreateBudgetStepThreeFragment().setFormCompletionCallback(this));
 
         adapter = new CreateBudgetPagerAdapter(getSupportFragmentManager());
         viewer.setAdapter(adapter);
@@ -57,10 +58,16 @@ public class CreateBudgetActivity extends AppCompatActivity implements ImageButt
             fragments.get(currentFragment).fillForm(this.targetForm);
             if(currentFragment == fragments.size() - 1){
                 // save to DB, goto details.
+                //CreateBudgetStepThreeFragment stepThree = (CreateBudgetStepThreeFragment) fragments.get(currentFragment);
+                //stepThree.showSummary(this.targetForm);
             } else {
                 // goto next form item
                 viewer.setCurrentItem(currentFragment + 1, true);
                 next.setVisibility(View.INVISIBLE);
+
+                if(currentFragment + 1 == fragments.size() - 1){
+                    ((CreateBudgetStepThreeFragment) fragments.get(currentFragment + 1)).showSummary(targetForm);
+                }
             }
         } else if(id == R.id.create_clear){
             fragments.get(currentFragment).clearForm();

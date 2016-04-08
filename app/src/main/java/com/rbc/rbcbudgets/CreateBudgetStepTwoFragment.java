@@ -64,12 +64,6 @@ public class CreateBudgetStepTwoFragment extends FormFragment implements Categor
     }
 
     @Override
-    public void onDetach() {
-        super.onDetach();
-        mCallBack = null; // remove reference
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
