@@ -1,0 +1,118 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#F5F5F5"
+    android:elevation="2dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.rbc.rbcbudgets.SummaryFragment">
+
+    <!-- Circular Progress -->
+    <RelativeLayout
+        android:id="@+id/progress_space"
+        android:layout_alignParentStart="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.mikhaellopez.circularprogressbar.CircularProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_margin="8dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:cpb_background_progressbar_color="@color/colorPrimaryDark"
+            app:cpb_background_progressbar_width="10dp"
+            app:cpb_progressbar_color="@color/colorAccent"
+            app:cpb_progressbar_width="15dp"
+            app:cpb_progress="20"/>
+
+        <TextView
+            android:id="@+id/progress_percentage"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="50%"
+            android:textColor="@color/colorPrimary"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <!-- Info -->
+    <LinearLayout
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_toRightOf="@+id/progress_space"
+        android:layout_alignParentEnd="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Name -->
+        <TextView
+            android:id="@+id/progress_goal_name"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp"
+            android:text="NAME OF GOAL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- Saved -->
+        <LinearLayout
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:text="Saved:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/progress_saved"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:text="$$$$$$"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- Left -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:text="Target:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/progress_target"
+                android:layout_marginStart="13dp"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:text="$$$$$$"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- Completion Date -->
+        <TextView
+            android:id="@+id/progress_date"
+            android:layout_marginTop="14dp"
+            android:textStyle="italic|bold"
+            android:text="January 1st, 2017"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</RelativeLayout>

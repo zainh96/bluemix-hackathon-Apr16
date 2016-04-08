@@ -2,6 +2,7 @@ package com.rbc.rbcbudgets;
 
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,5 +30,16 @@ public class DashBoardActivity extends AppCompatActivity {
 
         // get forms
         forms = GlobalDataTransfer.getInstance().getForms();
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        // make fragments
+        for(BudgetTarget form : forms){
+            SummaryFragment fragment = new SummaryFragment();
+            fragment.giveForm(form);
+            transaction.add(R.id.fragmentContainer, fragment);
+        }
+
+        transaction.commit();
     }
 }

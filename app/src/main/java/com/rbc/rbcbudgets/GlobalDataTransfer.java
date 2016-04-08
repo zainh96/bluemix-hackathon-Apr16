@@ -6,7 +6,7 @@ import java.util.List;
 // singleton class
 public class GlobalDataTransfer {
     private BudgetTarget form = null; // most recent single addition
-    private ArrayList<BudgetTarget> forms = null; // holds all forms
+    private ArrayList<BudgetTarget> forms = new ArrayList<>(); // holds all forms
     private static GlobalDataTransfer instance = null;
 
     public BudgetTarget getForm() {
