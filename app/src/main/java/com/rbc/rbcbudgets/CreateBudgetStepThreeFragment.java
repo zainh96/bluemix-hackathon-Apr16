@@ -18,6 +18,7 @@ public class CreateBudgetStepThreeFragment extends FormFragment implements View.
     private TextView money, date, forReason, becauseReason, list;
     private Button done;
     private String months[];
+    private boolean formFilled = false;
 
     public CreateBudgetStepThreeFragment() {
         // Required empty public constructor
@@ -59,6 +60,7 @@ public class CreateBudgetStepThreeFragment extends FormFragment implements View.
     @Override
     public void onClick(View v) {
         mCallBack.formIsFilled();
+        formFilled = true;
     }
 
     public void showSummary(BudgetTarget form){
@@ -101,5 +103,10 @@ public class CreateBudgetStepThreeFragment extends FormFragment implements View.
     public void onAttach(Context context) {
         super.onAttach(context);
         months = getActivity().getResources().getStringArray(R.array.month_array);
+    }
+
+    @Override
+    public boolean isFormFilled() {
+        return formFilled;
     }
 }

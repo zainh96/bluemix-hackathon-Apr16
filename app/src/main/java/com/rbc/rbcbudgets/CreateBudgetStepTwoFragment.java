@@ -95,4 +95,9 @@ public class CreateBudgetStepTwoFragment extends FormFragment implements Categor
     public void fillForm(BudgetTarget form) {
         form.setItems(items);
     }
+
+    @Override
+    public boolean isFormFilled() {
+        return items.size() > 0;
+    }
 }

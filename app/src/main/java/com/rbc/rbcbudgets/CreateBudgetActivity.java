@@ -63,7 +63,10 @@ public class CreateBudgetActivity extends AppCompatActivity implements ImageButt
             } else {
                 // goto next form item
                 viewer.setCurrentItem(currentFragment + 1, true);
-                next.setVisibility(View.INVISIBLE);
+
+                if(!fragments.get(currentFragment + 1).isFormFilled()) {
+                    next.setVisibility(View.INVISIBLE);
+                }
 
                 if(currentFragment + 1 == fragments.size() - 1){
                     ((CreateBudgetStepThreeFragment) fragments.get(currentFragment + 1)).showSummary(targetForm);

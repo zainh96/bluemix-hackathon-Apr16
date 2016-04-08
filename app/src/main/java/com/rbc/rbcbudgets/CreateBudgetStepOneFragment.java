@@ -167,4 +167,8 @@ public class CreateBudgetStepOneFragment extends FormFragment implements View.On
         return this;
     }
 
+    @Override
+    public boolean isFormFilled() {
+        return dateIsFilled && amountIsFilled && forIsFilled && becauseIsFilled;
+    }
 }
