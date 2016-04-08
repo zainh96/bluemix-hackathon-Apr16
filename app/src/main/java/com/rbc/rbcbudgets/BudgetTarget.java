@@ -12,6 +12,9 @@ public class BudgetTarget {
     private String goal = "";
     private String because = "";
     private ArrayList<Item> items;
+    private int id = 0;
+    private double saved = 0;
+    private double percentage = 0;
 
     public double getTargetSaveGoal() {
         return targetSaveGoal;
@@ -67,5 +70,29 @@ public class BudgetTarget {
 
     public void setItems(ArrayList<Item> items) {
         this.items = items;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public double getSaved() {
+        return saved;
+    }
+
+    public void setSaved(double saved) {
+        this.saved = saved;
+    }
+
+    public double getPercentage() {
+        return percentage;
+    }
+
+    public void setPercentage(double percentage) {
+        this.percentage = percentage;
     }
 }

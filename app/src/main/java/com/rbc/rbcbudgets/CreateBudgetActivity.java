@@ -1,5 +1,6 @@
 package com.rbc.rbcbudgets;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -58,8 +59,9 @@ public class CreateBudgetActivity extends AppCompatActivity implements ImageButt
             fragments.get(currentFragment).fillForm(this.targetForm);
             if(currentFragment == fragments.size() - 1){
                 // save to DB, goto details.
-                //CreateBudgetStepThreeFragment stepThree = (CreateBudgetStepThreeFragment) fragments.get(currentFragment);
-                //stepThree.showSummary(this.targetForm);
+                Intent intent = new Intent(this, DashBoardActivity.class);
+                GlobalDataTransfer.getInstance().addToForms(this.targetForm);
+                startActivity(intent);
             } else {
                 // goto next form item
                 viewer.setCurrentItem(currentFragment + 1, true);

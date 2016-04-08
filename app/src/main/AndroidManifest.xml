@@ -3,22 +3,29 @@
     package="com.rbc.rbcbudgets">
 
     <application
-        android:screenOrientation="portrait"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:windowSoftInputMode="adjustPan"
             android:name=".LoginActivity"
-            android:theme="@style/NoActionBar">
+            android:theme="@style/NoActionBar"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreateBudgetActivity" android:theme="@style/NoActionBar" android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".CreateBudgetActivity"
+            android:theme="@style/NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".DashBoardActivity" android:theme="@style/AppTheme">
+
+        </activity>
     </application>
+
 </manifest>

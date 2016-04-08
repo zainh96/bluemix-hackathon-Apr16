@@ -92,10 +92,10 @@ public class LoginActivity extends AppCompatActivity implements ImageButton.OnTo
     public void onClick(View v) {
         // TODO: check credentials with db.
 
-        // TODO: show progress bar
+        // TODO: show progress bar (and download data)
 
         // TODO: launch dashboard activity or launch initial budget creation.
-        Intent intent = new Intent(this, CreateBudgetActivity.class);
+        Intent intent = new Intent(this, DashBoardActivity.class);
         startActivity(intent);
     }
 
